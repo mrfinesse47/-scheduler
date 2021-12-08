@@ -12,11 +12,11 @@ const InterviewerList = (props) => {
         {props.interviewers.map((interviewer) => (
           <InterviewerListItem
             key={interviewer.id}
-            id={interviewer.id}
+            // id={interviewer.id}
             avatar={interviewer.avatar}
             name={interviewer.name}
             selected={interviewer.id === props.interviewer}
-            setInterviewer={props.setInterviewer}
+            setInterviewer={() => props.setInterviewer(interviewer.id)}
           />
         ))}
       </ul>
