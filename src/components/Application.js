@@ -27,7 +27,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
-        <DayListItem name="Monday" spots={0} selected />
+        <DayListItem name="Monday" spots={2} selected />
       </section>
     </main>
   );
