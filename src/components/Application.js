@@ -1,34 +1,29 @@
 import React, { useState } from "react";
 
-// import Button from "./Button";
-// import DayListItem from "./DayListItem";
-
 import DayList from "./DayList";
-
 import "components/Application.scss";
+
+const days = [
+  {
+    id: 1,
+    name: "Monday",
+    spots: 2,
+  },
+  {
+    id: 2,
+    name: "Tuesday",
+    spots: 5,
+  },
+  {
+    id: 3,
+    name: "Wednesday",
+    spots: 0,
+  },
+];
 
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
-  const days = [
-    {
-      id: 1,
-      name: "Monday",
-      spots: 2,
-    },
-    {
-      id: 2,
-      name: "Tuesday",
-      spots: 5,
-    },
-    {
-      id: 3,
-      name: "Wednesday",
-      spots: 0,
-    },
-  ];
-  // const clickHandler = () => {
-  //   console.log("button-clicked");
-  // };
+
   return (
     <main className="layout">
       <section className="sidebar">
