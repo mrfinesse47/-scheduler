@@ -16,3 +16,13 @@ export function getAppointmentsForDay(state, day) {
 
   return appointmentsForDay;
 }
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  interview.interviewer = { ...state.interviewers[interview.interviewer] };
+  //always making a copy of state to be safe
+
+  return interview;
+}
