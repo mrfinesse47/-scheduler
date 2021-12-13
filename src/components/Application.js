@@ -12,6 +12,21 @@ import {
 } from "helpers/selectors";
 
 export default function Application(props) {
+  function bookInterview(id, interview) {
+    console.log("#####", id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    console.log(appointment);
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    console.log(appointments);
+    setState({ ...state, appointments });
+  }
+
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
 
   const [state, setState] = useState({
@@ -40,10 +55,6 @@ export default function Application(props) {
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const InterviewersForDay = getInterviewersForDay(state, state.day);
 
-  console.log(InterviewersForDay);
-
-  console.log(state);
-
   return (
     <main className="layout">
       <section className="sidebar">
@@ -68,13 +79,14 @@ export default function Application(props) {
             const interview = getInterview(state, apt.interview);
             return (
               <Appointment
+                bookInterview={bookInterview}
                 key={apt.id}
                 {...apt}
                 interviewers={InterviewersForDay}
               />
             );
           })}
-          <Appointment key="last" time="5pm" />
+          <Appointment key="last" time="5pm" bookInterview={bookInterview} />
         </ul>
       </section>
     </main>
