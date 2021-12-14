@@ -21,10 +21,6 @@ export default function Application() {
 
   const remainingAppointments = getRemainingAppointmentsForDays(state);
 
-  console.log("#####state", state.days);
-
-  console.log("&&&&daily appointments,", dailyAppointments);
-
   return (
     <main className="layout">
       <section className="sidebar">
