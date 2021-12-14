@@ -4,6 +4,7 @@ import DayList from "./DayList";
 import "components/Application.scss";
 import Appointment from "components/Appointment";
 import axios from "axios";
+import _ from "lodash";
 
 import {
   getAppointmentsForDay,
@@ -13,7 +14,6 @@ import {
 
 export default function Application(props) {
   function bookInterview(id, interview) {
-    console.log("#####", id, interview);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview },
@@ -23,7 +23,6 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment,
     };
-    console.log(appointments);
 
     return axios
       .put(`/api/appointments/${id}`, { interview })
@@ -35,10 +34,13 @@ export default function Application(props) {
       });
   }
   function cancelInterview(id) {
+    // console.log("...state", { ...state });
     return axios
       .delete(`/api/appointments/${id}`)
       .then((res) => {
-        const newState = { ...state };
+        const newState = _.cloneDeep(state);
+        console.log(JSON.stringify(newState));
+
         newState.appointments[id].interview = null;
 
         setState(newState);

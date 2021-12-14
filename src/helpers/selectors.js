@@ -1,16 +1,19 @@
+import _ from "lodash";
+
 export function getAppointmentsForDay(state, day) {
   let aptNumArr = [];
   const appointmentsForDay = [];
+  const newState = _.cloneDeep(state); //bug fix
 
-  state.days.forEach((d) => {
+  newState.days.forEach((d) => {
     if (day === d.name) {
       aptNumArr = d.appointments;
     }
   });
 
   aptNumArr.forEach((appointment) => {
-    if (state.appointments[appointment]) {
-      appointmentsForDay.push({ ...state.appointments[appointment] }); //just incase it gets edited using ...
+    if (newState.appointments[appointment]) {
+      appointmentsForDay.push(newState.appointments[appointment]);
     }
   });
 
@@ -29,7 +32,7 @@ export function getInterview(state, interview) {
 
 export function getInterviewersForDay(state, day) {
   let interviewerNumArr = [];
-  const appointmentsForDay = [];
+  const interviewersForDay = [];
 
   state.days.forEach((d) => {
     if (day === d.name) {
@@ -39,11 +42,11 @@ export function getInterviewersForDay(state, day) {
 
   interviewerNumArr.forEach((interviewer) => {
     if (state.appointments[interviewer]) {
-      appointmentsForDay.push({ ...state.interviewers[interviewer] }); //just incase it gets edited using ...
+      interviewersForDay.push({ ...state.interviewers[interviewer] }); //just incase it gets edited using ...
     }
   });
 
-  console.log(appointmentsForDay);
+  console.log(interviewersForDay);
 
-  return appointmentsForDay;
+  return interviewersForDay;
 }

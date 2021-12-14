@@ -20,6 +20,8 @@ const Appointment = (props) => {
     props.interview ? SHOW : EMPTY
   );
 
+  //console.log("inteviewer", props.interview.interviewer);
+
   function save(name, interviewer) {
     const interview = {
       student: name,
