@@ -16,11 +16,10 @@ const Appointment = (props) => {
   const CREATE = "CREATE";
   const SAVING = "SAVING";
   const DELETING = "DELETING";
+  const EDIT = "EDIT";
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
-  //console.log("inteviewer", props.interview.interviewer);
 
   function save(name, interviewer) {
     const interview = {
@@ -37,13 +36,17 @@ const Appointment = (props) => {
 
   function deleteInterview(id) {
     transition(SAVING);
-    props.cancelInterview(props.id).then(() => {
+    props.cancelInterview(id).then(() => {
       transition(EMPTY);
     });
   }
 
-  function wantsToDeleteInterview(id) {
+  function wantsToDeleteInterview() {
     transition(DELETING);
+  }
+
+  function editInterview(id) {
+    transition(EDIT);
   }
 
   return (
@@ -52,7 +55,6 @@ const Appointment = (props) => {
       {mode === EMPTY && (
         <Empty
           onAdd={() => {
-            console.log("Clicked onAdd");
             transition(CREATE);
           }}
         />
@@ -62,6 +64,7 @@ const Appointment = (props) => {
           student={props.interview.student}
           interviewer={props.interview.interviewer}
           onDelete={wantsToDeleteInterview}
+          onEdit={() => editInterview(props.id)}
         />
       )}
       {mode === CREATE && (
@@ -70,6 +73,16 @@ const Appointment = (props) => {
           onSave={save}
           interviewers={props.interviewers}
           onCancel={() => back()}
+        />
+      )}
+      {mode === EDIT && (
+        <Form
+          bookInterview={props.bookInterview}
+          onSave={save}
+          interviewers={props.interviewers}
+          onCancel={() => back()}
+          student={props.interview.student}
+          interviewer={props.interview.interviewer.id}
         />
       )}
       {mode === SAVING && <Status />}

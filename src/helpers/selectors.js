@@ -46,7 +46,5 @@ export function getInterviewersForDay(state, day) {
     }
   });
 
-  console.log(interviewersForDay);
-
   return interviewersForDay;
 }

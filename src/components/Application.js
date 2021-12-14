@@ -39,7 +39,6 @@ export default function Application(props) {
       .delete(`/api/appointments/${id}`)
       .then((res) => {
         const newState = _.cloneDeep(state);
-        console.log(JSON.stringify(newState));
 
         newState.appointments[id].interview = null;
 
@@ -47,6 +46,26 @@ export default function Application(props) {
       })
       .catch((err) => {
         console.log("err");
+      });
+  }
+  function editInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    return axios
+      .put(`/api/appointments/${id}`, { interview })
+      .then((res) => {
+        setState({ ...state, appointments });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
