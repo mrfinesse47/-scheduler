@@ -48,3 +48,17 @@ export function getInterviewersForDay(state, day) {
 
   return interviewersForDay;
 }
+
+export function getRemainingAppointmentsForDays(state) {
+  const appointmentsRemaining = [5, 5, 5, 5, 5];
+
+  state.days.forEach((day, index) => {
+    day.appointments.forEach((appointment) => {
+      if (state.appointments[appointment].interview) {
+        appointmentsRemaining[index]--;
+      }
+    });
+  });
+
+  return appointmentsRemaining;
+}

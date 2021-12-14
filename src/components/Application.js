@@ -9,6 +9,7 @@ import {
   getAppointmentsForDay,
   getInterview,
   getInterviewersForDay,
+  getRemainingAppointmentsForDays,
 } from "helpers/selectors";
 
 export default function Application() {
@@ -17,6 +18,12 @@ export default function Application() {
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const InterviewersForDay = getInterviewersForDay(state, state.day);
+
+  const remainingAppointments = getRemainingAppointmentsForDays(state);
+
+  console.log("#####state", state.days);
+
+  console.log("&&&&daily appointments,", dailyAppointments);
 
   return (
     <main className="layout">
@@ -28,7 +35,12 @@ export default function Application() {
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList days={state.days} value={state.day} onChange={setDay} />
+          <DayList
+            days={state.days}
+            value={state.day}
+            onChange={setDay}
+            remainingAppointments={remainingAppointments}
+          />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -42,6 +54,7 @@ export default function Application() {
             const interview = getInterview(state, apt.interview);
             return (
               <Appointment
+                interview={interview}
                 bookInterview={bookInterview}
                 cancelInterview={cancelInterview}
                 key={apt.id}
@@ -56,6 +69,7 @@ export default function Application() {
             bookInterview={bookInterview}
             cancelInterview={cancelInterview}
             interviewers={InterviewersForDay}
+            interview={getInterview(state, dailyAppointments[4])}
           />
         </ul>
       </section>

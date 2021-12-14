@@ -56,7 +56,7 @@ const Appointment = (props) => {
   }
 
   function wantsToDeleteInterview() {
-    transition(WANTS_DELETING, true);
+    transition(WANTS_DELETING);
   }
 
   function editInterview() {
@@ -70,7 +70,7 @@ const Appointment = (props) => {
         <Error
           message={"Something went wrong on creation"}
           onClose={() => {
-            transition(CREATE);
+            back(2);
           }}
         />
       )}
@@ -78,7 +78,7 @@ const Appointment = (props) => {
         <Error
           message={"Something went wrong on deletion"}
           onClose={() => {
-            transition(CREATE);
+            back(2);
           }}
         />
       )}
