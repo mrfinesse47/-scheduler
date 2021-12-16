@@ -4,20 +4,20 @@ An app that allows you to schedule appointments from Monday to Friday. Built wit
 
 ## Features
 
-
+-The Main Layout
 !["The Main Layout"](https://github.com/mrfinesse47/scheduler/blob/master/docs/1.png?raw=true)
 
+-Booking an appointment
+!["Booking an appointment"](https://github.com/mrfinesse47/scheduler/blob/master/docs/5.png?raw=true)
 
-!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/2.png?raw=true)
-
-
-!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/3.png?raw=true)
-
-
+-New appointment is saved
 !["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/4.png?raw=true)
 
+-Deleting an appointment
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/3.png?raw=true)
 
-!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/5.png?raw=true)
+-Appointment has been deleted
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/2.png?raw=true)
 
 ## Setup
 
