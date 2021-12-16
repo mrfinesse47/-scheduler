@@ -2,6 +2,10 @@
 
 An app that allows you to schedule appointments from Monday to Friday. Built with React using hooks.
 
+##Features
+
+### 1.
+
 ## Setup
 
 Install dependencies with `npm install`.
