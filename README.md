@@ -1,5 +1,7 @@
 # Interview Scheduler
 
+An app that allows you to schedule appointments from Monday to Friday. Built with React using hooks.
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -21,3 +23,9 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Running API server
+
+https://github.com/lighthouse-labs/scheduler-api
+
+Follow the Instructions of the README in scheduler-api
