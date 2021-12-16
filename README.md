@@ -6,7 +6,19 @@ An app that allows you to schedule appointments from Monday to Friday. Built wit
 
 ### 1.
 
-!["The Mobile View"](https://github.com/mrfinesse47/Tweeter/blob/main/docs/1.png?raw=true)
+!["The Main Layout"](https://github.com/mrfinesse47/scheduler/blob/master/docs/1.png?raw=true)
+
+
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/2.png?raw=true)
+
+
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/3.png?raw=true)
+
+
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/4.png?raw=true)
+
+
+!["The Mobile View"](https://github.com/mrfinesse47/scheduler/blob/master/docs/5.png?raw=true)
 
 ## Setup
 
