@@ -14,16 +14,17 @@ const Form = (props) => {
   };
 
   const cancel = () => {
-    reset();
+    reset(); //reset the form to defaults before calling the prop function
     props.onCancel();
   };
 
   function validate() {
+    //client side validation on form submission
     if (student === "") {
       setError("Student name cannot be blank");
       return;
     }
-    setError("");
+    setError(""); //reset the error text to default
 
     props.onSave(student, interviewer);
   }
@@ -51,7 +52,7 @@ const Form = (props) => {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>
+          <Button danger onClick={() => cancel()}>
             Cancel
           </Button>
           <Button confirm onClick={() => validate()}>

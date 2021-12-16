@@ -3,7 +3,8 @@ import _ from "lodash";
 export function getAppointmentsForDay(state, day) {
   let aptNumArr = [];
   const appointmentsForDay = [];
-  const newState = _.cloneDeep(state); //bug fix
+  const newState = _.cloneDeep(state); //had to clone deep due to weird behaviour otherwise,
+  //interviewer name would sometimes go missing each render on SHOW
 
   newState.days.forEach((d) => {
     if (day === d.name) {
@@ -25,8 +26,8 @@ export function getInterview(state, interview) {
     return null;
   }
   interview.interviewer = { ...state.interviewers[interview.interviewer] };
-  //always making a copy of state to be safe
 
+  //returns an interview object
   return interview;
 }
 
@@ -42,7 +43,7 @@ export function getInterviewersForDay(state, day) {
 
   interviewerNumArr.forEach((interviewer) => {
     if (state.appointments[interviewer]) {
-      interviewersForDay.push({ ...state.interviewers[interviewer] }); //just incase it gets edited using ...
+      interviewersForDay.push({ ...state.interviewers[interviewer] }); //just incase it gets edited, so I am using ...
     }
   });
 
@@ -50,6 +51,10 @@ export function getInterviewersForDay(state, day) {
 }
 
 export function getRemainingAppointmentsForDays(state) {
+  //will decrement from this array representing mon-fri, index 0-4
+  //this array will be sent to day list to show remaining spots
+  //this function will be called each render, ie each state change.
+
   const appointmentsRemaining = [5, 5, 5, 5, 5];
 
   state.days.forEach((day, index) => {

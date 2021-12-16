@@ -16,8 +16,11 @@ export default function Application() {
   const { state, setDay, bookInterview, cancelInterview } =
     useApplicationData();
 
+  //selector functions imports
+
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const InterviewersForDay = getInterviewersForDay(state, state.day);
+  //a custom selector to determine remaining appointments for day
 
   const remainingAppointments = getRemainingAppointmentsForDays(state);
 

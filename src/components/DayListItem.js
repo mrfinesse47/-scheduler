@@ -2,10 +2,6 @@ import React from "react";
 import classNames from "classnames";
 import "components/DayListItem.scss";
 
-//1 spot remaining
-//no spots remaining
-//2 sports remaining
-
 export default function DayListItem(props) {
   const formatSpots = (spots) => {
     if (spots === 0) {
@@ -22,7 +18,6 @@ export default function DayListItem(props) {
     "day-list__item--full": props.spots === 0,
   });
 
-  console.log(dayListItemClass);
   return (
     <li
       className={dayListItemClass}

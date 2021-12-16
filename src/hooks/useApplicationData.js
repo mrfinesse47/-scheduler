@@ -3,10 +3,10 @@ import axios from "axios";
 import _ from "lodash";
 
 export default function useVisualMode(initial) {
+  //a custom hook
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    // you may put the line below, but will have to remove/comment hardcoded appointments variable
     appointments: {},
     interviewers: {},
   });
@@ -29,6 +29,7 @@ export default function useVisualMode(initial) {
   const setDay = (day) => setState((prev) => ({ ...prev, day }));
 
   function bookInterview(id, interview) {
+    //choosing not to convert to async
     return axios.put(`/api/appointments/${id}`, { interview }).then((res) => {
       const appointment = {
         ...state.appointments[id],
@@ -43,6 +44,7 @@ export default function useVisualMode(initial) {
     });
   }
   function cancelInterview(id) {
+    //choosing not to convert to async
     return axios.delete(`/api/appointments/${id}`).then((res) => {
       const newState = _.cloneDeep(state);
 

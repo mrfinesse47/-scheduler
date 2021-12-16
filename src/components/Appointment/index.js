@@ -34,7 +34,7 @@ const Appointment = (props) => {
     transition(SAVING);
 
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview) //returns a promise from the prop function, so I am able to use .then
       .then(() => {
         transition(SHOW);
       })
@@ -56,6 +56,7 @@ const Appointment = (props) => {
   }
 
   function wantsToDeleteInterview() {
+    //will transition to a menu that asks the user if they are sure they want to delete their interview
     transition(WANTS_DELETING);
   }
 
