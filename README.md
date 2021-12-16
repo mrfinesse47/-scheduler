@@ -2,9 +2,8 @@
 
 An app that allows you to schedule appointments from Monday to Friday. Built with React using hooks.
 
-##Features
+## Features
 
-### 1.
 
 !["The Main Layout"](https://github.com/mrfinesse47/scheduler/blob/master/docs/1.png?raw=true)
 
