@@ -6,6 +6,8 @@ An app that allows you to schedule appointments from Monday to Friday. Built wit
 
 ### 1.
 
+!["The Mobile View"](https://github.com/mrfinesse47/Tweeter/blob/main/docs/1.png?raw=true)
+
 ## Setup
 
 Install dependencies with `npm install`.
