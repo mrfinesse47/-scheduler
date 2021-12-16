@@ -4,10 +4,10 @@ An app that allows you to schedule appointments from Monday to Friday. Built wit
 
 ## Features
 
--The Main Layout
+-The Main Layout, for Wednesday.
 !["The Main Layout"](https://github.com/mrfinesse47/scheduler/blob/master/docs/1.png?raw=true)
 
--Booking an appointment
+-Booking an appointment, on Monday
 !["Booking an appointment"](https://github.com/mrfinesse47/scheduler/blob/master/docs/5.png?raw=true)
 
 -New appointment is saved
